@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-k8s-deployment
+  labels:
+      app: springboot-k8s
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+          app: springboot-k8s-deployment
+    template:
+        metadata:
+          labels:
+            app: springboot-k8s-deployment
+        spec:
+          containers:
+            - name: springboot-k8s
+              image: panigrahiankit/springboot-emp-mgmt-app:01
+              imagePullPolicy: IfNotPresent
+              ports:
+                - containerPort: 8085

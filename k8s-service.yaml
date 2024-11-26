@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboot-k8s-service
+spec:
+  selector:
+    app: springboot-k8s-deployment # This should match the label in deployment.yaml
+  ports:
+    - protocol: TCP
+      port: 8085 # This is the port on which the service will be exposed
+      targetPort: 8085 # This is the port on which the application is running
+  type: NodePort # This will expose the service on a random port on the node
+
+  #Types of services:
+    # ClusterIP: Exposes the service on a cluster-internal IP. Choosing this value makes the service only reachable from within the cluster.
+    # NodePort: Exposes the service on each Node’s IP at a static port (the NodePort). A ClusterIP service, to which the NodePort service will route, is automatically created.
+    # LoadBalancer: Exposes the service externally using a cloud provider’s load balancer. NodePort and ClusterIP services, to which the external load balancer will route, are automatically created.
+
+  #kubectl get nodes -o wide: To get the IP address of the node on which the service is running
