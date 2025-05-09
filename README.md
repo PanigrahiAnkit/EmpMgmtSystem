@@ -49,7 +49,7 @@ mvn spring-boot:run
 ## 🌐 Access the Application
 
 * **API Base URL**: [http://localhost:8080](http://localhost:8080)
-* **H2 Console**: [http://localhost:8080/h2-console](http://localhost:8080/h2)
+* **H2 Console**: [http://localhost:8080/h2](http://localhost:8080/h2)
   * **JDBC URL**: `jdbc:h2:mem:testdb`
   * **Username**: `sa`
   * **Password**: `password`
